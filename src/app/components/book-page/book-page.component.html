@@ -1,0 +1,74 @@
+<div class="col-lg-12 panel">
+    <h2 class="col-lg-12 panel current-card">
+        <div class="panel-body">
+            <a [routerLink]="['cover-page', selectedBook.covers[0]]" target="_blank">
+                <img class="profile-picture pull-right oneimg" height="auto"
+                    [src]="'https://covers.openlibrary.org/b/id/' + selectedBook.covers[0] + '-M.jpg'">
+            </a>
+            <h1>
+                <a *ngFor="let author_name of bookdetails[0].author_name; last as isLast; index as i"
+                    href="https://openlibrary.org/authors/{{author_key[i]}}" target="_blank">
+                    <span *ngIf="!isLast">{{author_name}}, </span><span *ngIf="isLast">{{author_name}}</span>
+                </a>{{header}}
+            </h1>
+            <div class="like-content">
+                <button class="btn-secondary like-review" (click)="markFavourite()">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                    <span *ngIf="!this.isFavorite">♡ Like</span>
+                    <span *ngIf="this.isFavorite">Liked</span>
+                </button>
+            </div>
+            <div class="edition-omniline">
+                <div class="edition-omniline-item">
+                    <h4>Number of pages</h4>
+                    <h5>{{bookdetails[0].number_of_pages_median}}</h5>
+                    <h5 *ngIf="bookdetails[0].number_of_pages_median==null">-</h5>
+                </div>
+                <div class="edition-omniline-item">
+                    <h4>Ratings</h4>
+                    <h5>{{bookdetails[0].readinglog_count}}</h5>
+                    <h5 *ngIf="bookdetails[0].readinglog_count==null">-</h5>
+                </div>
+                <div class="edition-omniline-item">
+                    <h4>Want to read</h4>
+                    <h5>{{bookdetails[0].want_to_read_count}}</h5>
+                    <h5 *ngIf="bookdetails[0].want_to_read_count==null">-</h5>
+                </div>
+                <div class="edition-omniline-item">
+                    <h4>Currently reading</h4>
+                    <h5>{{bookdetails[0].currently_reading_count}}</h5>
+                    <h5 *ngIf="bookdetails[0].currently_reading_count==null">-</h5>
+                </div>
+                <div class="edition-omniline-item">
+                    <h4>Have read</h4>
+                    <h5>{{bookdetails[0].already_read_count}}</h5>
+                    <h5 *ngIf="bookdetails[0].already_read_count==null">-</h5>
+                </div>
+            </div>
+
+            <div
+                *ngIf="selectedBook.description?.value==null && selectedBook.description!=null && selectedBook.description!=undefined">
+                <h3>Description: </h3>
+                <h4>{{selectedBook.description}}</h4>
+            </div>
+
+            <div *ngIf="bookdetails[0].first_sentence!=null">
+                <h3>First sentence: </h3>
+                <h4><i>"{{bookdetails[0].first_sentence}}"</i></h4>
+            </div>
+
+            <div *ngIf="selectedBook.subjects!=null">
+                <h3>Subjects: </h3>
+                <h4>
+                    <a *ngFor="let subject of selectedBook.subjects.slice(0, 20); index as i"
+                        href="https://openlibrary.org/subjects/{{subject.toLowerCase().replaceAll(' ', '_')}}"
+                        target="_blank">
+                        <span class="chip">{{subject}}</span>
+                    </a>
+                </h4>
+            </div>
+
+           
+        </div>
+    </h2>
+</div>

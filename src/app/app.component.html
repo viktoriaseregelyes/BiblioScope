@@ -1,0 +1,20 @@
+<div class="container">
+    <nav class="navbar navbar-default">
+
+        <div class="navbar-header">
+            <a routerLink="/" class="navbar-brand">{{title}}</a>
+        </div>
+        <div class="navbar-collapse" (collapse)="isNavbarCollapsed" id="navbar">
+            <ul class="nav navbar-nav">
+                <li [class.active]="router.isActive('/book-search-page', false)"> <a
+                        routerLink="/book-search-page">Books</a> </li>
+                <li [class.active]="router.isActive('/author-search-page', false)"> <a
+                        routerLink="/author-search-page">Authors</a> </li>
+            </ul>
+        </div>
+
+    </nav>
+    <div class="col-lg-12 panel panel-default">
+        <router-outlet></router-outlet>
+    </div>
+</div>
