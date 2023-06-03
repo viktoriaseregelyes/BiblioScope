@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Images from the app
 
-![alt text](https://github.com/viktoriaseregelyes/BiblioScope/tree/master/readme_images/1.png?raw=true)
+![alt text](https://github.com/viktoriaseregelyes/BiblioScope/tree/master/readme_images/1.PNG?raw=true)
 
 ## Development server
 
